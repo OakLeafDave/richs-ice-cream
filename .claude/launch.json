@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "richs-ice-cream",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "8491"],
+      "port": 8491
+    }
+  ]
+}
