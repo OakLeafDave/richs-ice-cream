@@ -20,7 +20,7 @@
     {year:'1958',title:'A family business',kind:'milestone',photo:IMG+'fam3.jpg',text:'What began as a summer stand becomes the family&rsquo;s life&rsquo;s work. The Gutwein kids grow up behind the counter, learning the recipes that still run the shop today.'},
     {year:'1965',title:'The Richie Bar is born',kind:'signature',text:'Rich perfects his own chocolate-dipped ice cream bar &mdash; the legendary Richie Bar &mdash; drops the franchise, and strikes out under the family name: Rich&rsquo;s Ice Cream.'},
     {year:'1980s',title:'The next generation',kind:'milestone',photo:IMG+'fam1.jpg',text:'The second generation steps up in their Rich&rsquo;s shirts. Same hand-cranked recipes, same shore families coming back summer after summer.'},
-    {year:'Today',title:'Third generation',kind:'milestone',photo:IMG+'richs-shop-today.jpg',text:'Grandson Hunter Gutwein carries the tradition forward across three shore shops &mdash; Lanoka Harbor, Toms River &amp; Manahawkin &mdash; still scooping the Richie Bar the original way.'},
+    {year:'2016',now:true,title:'Third generation',kind:'milestone',photo:IMG+'richs-shop-today.jpg',text:'Grandson Hunter Gutwein carries the tradition forward across three shore shops &mdash; Lanoka Harbor, Toms River &amp; Manahawkin &mdash; still scooping the Richie Bar the original way.'},
     {year:'2026',title:'Surf City opens',kind:'branch',city:'Surf City',addr:'512 Long Beach Blvd',text:'Rich&rsquo;s brings the Richie Bar to the island. Our newest shop opens on Long Beach Blvd in Surf City &mdash; four locations, one seventy-year-old family recipe.'}
   ];
   var KIND={founding:'The Founding',milestone:'Milestone',signature:'Our Signature',branch:'Now Open'};
@@ -37,7 +37,7 @@
     track.appendChild(n);
     var media;
     if(it.kind==='branch') media='<div class="rht-media branch">'+PIN+'<div class="rht-city">'+it.city+', NJ</div><div class="rht-addr">'+it.addr+'</div><div class="rht-sub">Now open</div></div>';
-    else if(it.photo&&it.year==='Today') media='<div class="rht-media photo"><img src="'+it.photo+'" alt="Rich&rsquo;s Ice Cream shop today" loading="lazy"></div>';
+    else if(it.photo&&it.now) media='<div class="rht-media photo"><img src="'+it.photo+'" alt="Rich&rsquo;s Ice Cream shop today" loading="lazy"></div>';
     else if(it.photo) media='<div class="rht-media hist"><img src="'+it.photo+'" alt="The Original Rich&rsquo;s Ice Cream, '+it.year+'" loading="lazy"></div>';
     else media='<div class="rht-media emblem"><span class="rht-wm">'+it.year+'</span>'+CONE+'</div>';
     var p=document.createElement('article');

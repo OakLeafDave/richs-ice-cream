@@ -43,6 +43,14 @@
   #rht-timeline .rht-pyr{font-size:2.5rem}
   #rht-timeline .rht-h3{font-size:1.35rem}
 }
+@media (max-width:600px){
+  #rht-timeline .rht-track{overflow-x:visible;gap:.2rem}
+  #rht-timeline .rht-node{min-width:0;flex:1 1 0%}
+  #rht-timeline .rht-yr{font-size:.74rem;letter-spacing:0}
+}
+@media (max-width:380px){
+  #rht-timeline .rht-yr{font-size:.64rem}
+}
 @media (prefers-reduced-motion:reduce){
   #rht-timeline .rht-media.hist img,#rht-timeline .rht-media.photo img,#rht-timeline .rht-node[aria-selected="true"] .rht-dot::after{animation:none}
   #rht-timeline .rht-panel{transition:opacity .2s}
