@@ -7,6 +7,7 @@
     if(o1)o1.parentNode.removeChild(o1);
     if(o2)o2.parentNode.removeChild(o2);
     var pr=host.querySelector('[data-rht-probe]'); if(pr)pr.parentNode.removeChild(pr);
+    [].forEach.call(host.querySelectorAll('.w-embed'),function(e){if(!e.textContent.trim()&&!e.querySelector('script,link'))e.parentNode.removeChild(e);});
     var root=document.createElement('div');
     root.id='rht-timeline'; root.className='rht';
     root.setAttribute('aria-label',"The Original Rich's Ice Cream history timeline");
