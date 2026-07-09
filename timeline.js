@@ -2,9 +2,14 @@
   function init(){
     var host=document.getElementById('rh-tltabs');
     if(!host||host.dataset.rhtInit)return; host.dataset.rhtInit='1';
-    host.innerHTML='<div id="rht-timeline" class="rht" aria-label="The Original Rich\'s Ice Cream history timeline"><div class="rht-track" role="tablist" aria-label="Company milestones"></div><div class="rht-stage"></div></div>';
-    var root=document.getElementById('rht-timeline');
-    if(!root)return;
+    var o1=document.getElementById('rh-tly'), o2=document.getElementById('rh-tlstage');
+    if(o1)o1.parentNode.removeChild(o1);
+    if(o2)o2.parentNode.removeChild(o2);
+    var root=document.createElement('div');
+    root.id='rht-timeline'; root.className='rht';
+    root.setAttribute('aria-label',"The Original Rich's Ice Cream history timeline");
+    root.innerHTML='<div class="rht-track" role="tablist" aria-label="Company milestones"></div><div class="rht-stage"></div>';
+    host.insertBefore(root, host.firstChild);
 
   var IMG='https://oakleafdave.github.io/richs-ice-cream/assets/img/';
   var items=[
