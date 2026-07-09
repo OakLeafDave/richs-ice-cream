@@ -1,5 +1,6 @@
 (function(){
   function init(){
+    if(!document.getElementById('rht-css')){var l=document.createElement('link');l.id='rht-css';l.rel='stylesheet';l.href='https://oakleafdave.github.io/richs-ice-cream/timeline.css?v=3';document.head.appendChild(l);}
     var host=document.getElementById('rh-tltabs');
     if(!host||host.dataset.rhtInit)return; host.dataset.rhtInit='1';
     var o1=document.getElementById('rh-tly'), o2=document.getElementById('rh-tlstage');
