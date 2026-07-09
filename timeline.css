@@ -1,0 +1,49 @@
+/* The Original Rich's Ice Cream — interactive heritage timeline (loaded via Webflow page head code) */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=DM+Sans:wght@400;500;600;700&display=swap');
+#rht-timeline.rht{--red:#a81f23;--red-dark:#7c1517;--gold:#c8901e;--gold-lt:#e0b34e;--cream:#f8efdd;--soft:#fbf6ea;--ink:#3f140f;--slate:#875f52;--line:#ecdcc0;
+  font-family:'DM Sans',system-ui,sans-serif;max-width:1160px;margin:0 auto;color:var(--ink)}
+#rht-timeline .rht-track{position:relative;display:flex;justify-content:space-between;gap:.4rem;padding:1.5rem 2px .3rem;overflow-x:auto;scrollbar-width:none}
+#rht-timeline .rht-track::-webkit-scrollbar{height:0}
+#rht-timeline .rht-line{position:absolute;top:calc(1.5rem + 6px);left:8px;right:8px;height:3px;background:var(--line);border-radius:3px}
+#rht-timeline .rht-fill{position:absolute;top:0;left:0;height:100%;width:0;background:linear-gradient(90deg,var(--red),var(--gold));border-radius:3px;transition:width .6s cubic-bezier(.4,0,.2,1)}
+#rht-timeline .rht-node{flex:0 0 auto;min-width:74px;display:flex;flex-direction:column;align-items:center;gap:.5rem;background:none;border:0;cursor:pointer;scroll-snap-align:center;padding:0;color:var(--slate);font:inherit}
+#rht-timeline .rht-dot{width:15px;height:15px;border-radius:50%;background:#fff;border:3px solid var(--gold-lt);position:relative;z-index:1;transition:transform .2s,border-color .2s,background .2s,box-shadow .2s}
+#rht-timeline .rht-yr{font-family:'Playfair Display',serif;font-weight:800;font-size:1.05rem;letter-spacing:.01em;transition:color .2s}
+#rht-timeline .rht-node:hover .rht-dot,#rht-timeline .rht-node:focus-visible .rht-dot{transform:scale(1.18);border-color:var(--red)}
+#rht-timeline .rht-node:focus-visible{outline:none}
+#rht-timeline .rht-node[aria-selected="true"] .rht-dot{background:var(--red);border-color:var(--red);transform:scale(1.4);box-shadow:0 0 0 6px rgba(168,31,35,.16)}
+#rht-timeline .rht-node[aria-selected="true"] .rht-yr{color:var(--red-dark)}
+#rht-timeline .rht-node[aria-selected="true"] .rht-dot::after{content:"";position:absolute;inset:-3px;border-radius:50%;border:2px solid var(--red);animation:rhtPulse 1.7s ease-out infinite}
+@keyframes rhtPulse{0%{transform:scale(1);opacity:.7}100%{transform:scale(2.3);opacity:0}}
+#rht-timeline .rht-stage{position:relative;margin-top:1.5rem;background:var(--soft);border:1px solid var(--line);border-radius:16px;overflow:hidden;min-height:250px;box-shadow:0 22px 50px -34px rgba(63,20,15,.45)}
+#rht-timeline .rht-panel{position:absolute;inset:0;display:grid;grid-template-columns:1.02fr .98fr;gap:1.8rem;padding:2rem;opacity:0;transform:translateY(16px);pointer-events:none;transition:opacity .5s ease,transform .5s ease}
+#rht-timeline .rht-panel.active{opacity:1;transform:none;pointer-events:auto;position:relative}
+#rht-timeline .rht-body{align-self:center}
+#rht-timeline .rht-kind{display:inline-block;font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:.4rem}
+#rht-timeline .rht-pyr{font-family:'Playfair Display',serif;font-weight:900;font-size:3rem;color:var(--red);line-height:.95}
+#rht-timeline .rht-h3{font-family:'Playfair Display',serif;font-weight:800;font-size:1.6rem;color:var(--ink);margin:.3rem 0 .6rem}
+#rht-timeline .rht-p{color:var(--slate);margin:0;line-height:1.6;font-size:1.02rem}
+#rht-timeline .rht-media{border-radius:12px;overflow:hidden;align-self:stretch;min-height:300px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--red-dark),var(--red));position:relative}
+#rht-timeline .rht-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 32%;display:block}
+#rht-timeline .rht-media.photo img{object-position:50% 45%}
+#rht-timeline .rht-media.hist img{filter:sepia(.32) contrast(1.04) saturate(.92) brightness(1.03);animation:rhtKb 15s ease-in-out infinite alternate}
+#rht-timeline .rht-media.photo img{animation:rhtKb 15s ease-in-out infinite alternate}
+@keyframes rhtKb{from{transform:scale(1.03)}to{transform:scale(1.14)}}
+#rht-timeline .rht-media.branch,#rht-timeline .rht-media.emblem{flex-direction:column;color:#fff;gap:.55rem;text-align:center;padding:1.6rem}
+#rht-timeline .rht-media .rht-pin{width:52px;height:52px}
+#rht-timeline .rht-city{font-family:'Playfair Display',serif;font-weight:800;font-size:2rem;line-height:1;color:var(--cream)}
+#rht-timeline .rht-addr{font-size:.9rem;color:#f6ddc0;letter-spacing:.01em}
+#rht-timeline .rht-sub{font-size:.72rem;color:var(--gold-lt);letter-spacing:.16em;text-transform:uppercase;font-weight:700}
+#rht-timeline .rht-wm{font-family:'Playfair Display',serif;font-weight:900;font-size:5rem;color:rgba(255,255,255,.15);line-height:1}
+#rht-timeline .rht-emblem-ico{width:56px;height:56px;opacity:.95}
+@media (max-width:760px){
+  #rht-timeline .rht-panel{grid-template-columns:1fr;gap:1.2rem;padding:1.4rem}
+  #rht-timeline .rht-media{min-height:180px;order:2}
+  #rht-timeline .rht-stage{min-height:0}
+  #rht-timeline .rht-pyr{font-size:2.5rem}
+  #rht-timeline .rht-h3{font-size:1.35rem}
+}
+@media (prefers-reduced-motion:reduce){
+  #rht-timeline .rht-media.hist img,#rht-timeline .rht-media.photo img,#rht-timeline .rht-node[aria-selected="true"] .rht-dot::after{animation:none}
+  #rht-timeline .rht-panel{transition:opacity .2s}
+}
